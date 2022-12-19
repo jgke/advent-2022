@@ -38,9 +38,14 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let lines = vec![vec![1000, 2000, 3000], vec![4000], vec![5000, 6000], vec![7000, 8000, 9000], vec![10000]];
+        let lines = vec![
+            vec![1000, 2000, 3000],
+            vec![4000],
+            vec![5000, 6000],
+            vec![7000, 8000, 9000],
+            vec![10000],
+        ];
         assert_eq!(24000, one_impl(&lines));
         assert_eq!(45000, two_impl(&lines));
-
     }
 }
