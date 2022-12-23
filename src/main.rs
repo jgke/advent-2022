@@ -14,8 +14,8 @@ mod day_9;
 
 mod day_10;
 mod day_11;
+mod day_12;
 
-//mod day_12;
 //mod day_13;
 //mod day_14;
 //mod day_15;
@@ -31,7 +31,7 @@ mod day_11;
 //mod day_25;
 
 fn main() {
-    let day = 11;
+    let day = 12;
     match day {
         1 => day_1::one().unwrap(),
         2 => day_2::two().unwrap(),
@@ -44,7 +44,7 @@ fn main() {
         9 => day_9::nine().unwrap(),
         10 => day_10::ten().unwrap(),
         11 => day_11::eleven().unwrap(),
-        //12 => day_12::twelve().unwrap(),
+        12 => day_12::twelve().unwrap(),
         //13 => day_13::thirteen().unwrap(),
         //14 => day_14::fourteen().unwrap(),
         //15 => day_15::fifteen().unwrap(),

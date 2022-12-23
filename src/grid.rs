@@ -110,6 +110,12 @@ impl<Cell> Grid<Cell> {
         })
     }
 
+    pub fn map_pos<T, F: FnMut(&Cell, usize, usize) -> T>(&self, mut f: F) -> Grid<T> {
+        Grid::new_with(self.row_size(), self.col_size(), |x, y| {
+            f(self.get(x, y).unwrap(), x, y)
+        })
+    }
+
     pub fn iter(&self) -> impl Iterator<Item = &Cell> {
         (0..self.col_size())
             .flat_map(move |y| (0..self.row_size()).map(move |x| (x, y)))
@@ -126,14 +132,14 @@ impl<Cell: fmt::Display> fmt::Display for Grid<Cell> {
                 cols -= 1;
                 write!(f, "{}", cell)?;
                 if cols == 0 {
-                    write!(f, "|")?;
+                    //write!(f, "|")?;
                     cols = 10;
                 }
             }
             rows -= 1;
             writeln!(f)?;
             if rows == 0 {
-                writeln!(f, "-")?;
+                //writeln!(f, "-")?;
                 rows = 10;
             }
         }
