@@ -74,14 +74,17 @@ impl<Cell> Grid<Cell> {
         .collect()
     }
 
-    pub fn ray<'a>(
+    pub fn ray<'a, F>(
         &'a self,
         mut x: i32,
         mut y: i32,
         dx: i32,
         dy: i32,
-        cont: fn(&'a Cell) -> bool,
-    ) -> Option<&'a Cell> {
+        mut cont: F,
+    ) -> Option<&'a Cell>
+    where
+        F: FnMut(&'a Cell) -> bool,
+    {
         x += dx;
         y += dy;
 
