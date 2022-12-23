@@ -32,16 +32,16 @@ fn parse(reader: Vec<String>) -> Input {
     let mut crates = Vec::new();
     let mut operations = Vec::new();
     let mut iter = reader.iter();
-    while let Some(s) = iter.next() {
-        if s == "" {
+    for s in iter.by_ref() {
+        if s.is_empty() {
             break;
         }
         let mut vec = s.chars().collect::<Vec<_>>();
         vec.reverse();
         crates.push(vec);
     }
-    while let Some(s) = iter.next() {
-        let parts = s.split(" ").collect::<Vec<_>>();
+    for s in iter {
+        let parts = s.split(' ').collect::<Vec<_>>();
         operations.push((
             parts[1].parse().unwrap(),
             parts[3].parse::<usize>().unwrap() - 1,

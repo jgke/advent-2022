@@ -28,8 +28,8 @@ fn parse(reader: Vec<String>) -> Input {
     let mut lines = Vec::new();
     for s in reader {
         let p = s
-            .split(",")
-            .flat_map(|s| s.split("-").map(|s| s.parse().unwrap()))
+            .split(',')
+            .flat_map(|s| s.split('-').map(|s| s.parse().unwrap()))
             .collect::<Vec<_>>();
         lines.push(((p[0], p[1]), (p[2], p[3])));
     }

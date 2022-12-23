@@ -20,7 +20,7 @@ pub fn one() -> Result<(), std::io::Error> {
     let mut elf = vec![];
     for line in reader.lines() {
         let line = line?;
-        if line == "" {
+        if line.is_empty() {
             elves.push(elf);
             elf = Vec::new();
         } else {

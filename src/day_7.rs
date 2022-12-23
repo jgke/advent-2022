@@ -21,7 +21,7 @@ type Input = Dir;
 fn sizes(input: &Dir) -> (usize, Vec<usize>) {
     let mut this = input.files.iter().map(|(size, _)| size).sum::<usize>();
     let mut inner: Vec<usize> = Vec::new();
-    for (_, d) in &input.dirs {
+    for d in input.dirs.values() {
         let (actual, dirs) = sizes(d);
         this += actual;
         inner.extend(&mut dirs.into_iter());
@@ -52,7 +52,7 @@ where
 {
     while let Some(s) = iter.next() {
         if s.contains("cd") {
-            let dir = s.split(" ").collect::<Vec<_>>()[2];
+            let dir = s.split(' ').collect::<Vec<_>>()[2];
             if dir == "/" {
                 return None;
             } else if dir == ".." {
@@ -64,9 +64,9 @@ where
                 parse_(fs.dirs.get_mut(dir).unwrap(), iter)?;
             }
         } else if s.contains("ls") {
-            while iter.peek().filter(|s| !s.contains("$")).is_some() {
+            while iter.peek().filter(|s| !s.contains('$')).is_some() {
                 let next = iter.next().unwrap();
-                let row = next.split(" ").collect::<Vec<_>>();
+                let row = next.split(' ').collect::<Vec<_>>();
                 if !row[0].starts_with("dir") {
                     fs.files.push((row[0].parse().unwrap(), row[1].to_string()));
                 }
