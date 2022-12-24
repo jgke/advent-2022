@@ -27,13 +27,13 @@ impl<Cell> Grid<Cell> {
 
     pub fn get(&self, x: usize, y: usize) -> Option<&Cell> {
         self.elems
-            .get(y as usize)
-            .and_then(|col| col.get(x as usize))
+            .get(y)
+            .and_then(|col| col.get(x))
     }
 
     pub fn set(&mut self, x: usize, y: usize, mut new: Cell) -> Option<Cell> {
-        self.elems.get_mut(y as usize).and_then(|col| {
-            let prev = col.get_mut(x as usize)?;
+        self.elems.get_mut(y).and_then(|col| {
+            let prev = col.get_mut(x)?;
             std::mem::swap(prev, &mut new);
             Some(new)
         })
