@@ -26,9 +26,7 @@ impl<Cell> Grid<Cell> {
     }
 
     pub fn get(&self, x: usize, y: usize) -> Option<&Cell> {
-        self.elems
-            .get(y)
-            .and_then(|col| col.get(x))
+        self.elems.get(y).and_then(|col| col.get(x))
     }
 
     pub fn set(&mut self, x: usize, y: usize, mut new: Cell) -> Option<Cell> {
