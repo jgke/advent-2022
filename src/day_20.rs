@@ -31,7 +31,7 @@ fn one_impl(input: &Input) -> i64 {
         .skip_while(|n| *n != 0)
         .take(3001)
         .collect::<Vec<_>>();
-    return cycled[1000] + cycled[2000] + cycled[3000];
+    cycled[1000] + cycled[2000] + cycled[3000]
 }
 
 fn two_impl(input: &Input) -> i64 {
@@ -70,7 +70,7 @@ fn two_impl(input: &Input) -> i64 {
         .skip_while(|n| *n != 0)
         .take(3001)
         .collect::<Vec<_>>();
-    return cycled[1000] + cycled[2000] + cycled[3000];
+    cycled[1000] + cycled[2000] + cycled[3000]
 }
 
 fn parse(reader: Vec<String>) -> Input {

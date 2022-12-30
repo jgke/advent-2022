@@ -24,15 +24,15 @@ mod day_18;
 mod day_19;
 
 mod day_20;
+mod day_21;
 
-//mod day_21;
 //mod day_22;
 //mod day_23;
 //mod day_24;
 //mod day_25;
 
 fn main() {
-    let day = 20;
+    let day = 21;
     match day {
         1 => day_1::one().unwrap(),
         2 => day_2::two().unwrap(),
@@ -54,7 +54,7 @@ fn main() {
         18 => day_18::eighteen().unwrap(),
         19 => day_19::nineteen().unwrap(),
         20 => day_20::twenty().unwrap(),
-        //21 => day_21::twentyone().unwrap(),
+        21 => day_21::twentyone().unwrap(),
         //22 => day_22::twentytwo().unwrap(),
         //23 => day_23::twentythree().unwrap(),
         //24 => day_24::twentyfour().unwrap(),
