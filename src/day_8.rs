@@ -31,7 +31,7 @@ fn ray2(trees: &Input, (mut x, mut y): (i32, i32), (dx, dy): (i32, i32)) -> i32 
         x += dx;
         y += dy;
     }
-    dbg!(count)
+    count
 }
 
 fn one_impl(input: &Input) -> usize {
@@ -71,7 +71,6 @@ fn two_impl(input: &Input) -> i32 {
             res *= ray2(input, (x as i32, y as i32), (0, -1));
 
             max = max.max(res);
-            println!("x={} y={} {}\n", x, y, res);
         }
     }
     max
@@ -87,7 +86,7 @@ fn parse(reader: Vec<String>) -> Input {
 }
 
 pub fn eight() -> Result<(), std::io::Error> {
-    let file = File::open("8_input")?;
+    let file = File::open("input/8_input")?;
     let reader = BufReader::new(file);
     let input = parse(reader.lines().map(|t| t.unwrap()).collect());
     println!("Day 8 part 1: {}", one_impl(&input));

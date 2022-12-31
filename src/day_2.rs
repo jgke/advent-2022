@@ -64,7 +64,7 @@ fn two_impl(input: &[(Play, Play)]) -> i32 {
 }
 
 pub fn two() -> Result<(), std::io::Error> {
-    let file = File::open("2_input")?;
+    let file = File::open("input/2_input")?;
     let reader = BufReader::new(file);
     let mut plays = vec![];
     for line in reader.lines() {

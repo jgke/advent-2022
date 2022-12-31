@@ -88,7 +88,7 @@ fn parse(reader: Vec<String>) -> Input {
 }
 
 pub fn seven() -> Result<(), std::io::Error> {
-    let file = File::open("7_input")?;
+    let file = File::open("input/7_input")?;
     let reader = BufReader::new(file);
     let input = parse(reader.lines().map(|t| t.unwrap()).collect());
     println!("Day 7 part 1: {}", one_impl(&input));

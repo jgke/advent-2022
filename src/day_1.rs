@@ -14,7 +14,7 @@ fn two_impl(input: &[Vec<i32>]) -> i32 {
 }
 
 pub fn one() -> Result<(), std::io::Error> {
-    let file = File::open("1_input")?;
+    let file = File::open("input/1_input")?;
     let reader = BufReader::new(file);
     let mut elves = vec![];
     let mut elf = vec![];

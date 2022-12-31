@@ -110,7 +110,7 @@ fn two_impl((grid, movements): &Input) -> usize {
                         .is_ascii_alphabetic()
                     {
                         let new_npos = translations[&npos];
-                        let new_rotation = match dbg!(
+                        let new_rotation = match (
                             grid.get(new_npos.0 + 1, new_npos.1),
                             grid.get(new_npos.0, new_npos.1 + 1),
                             grid.get(new_npos.0.saturating_sub(1), new_npos.1),
@@ -241,7 +241,7 @@ fn parse(mut reader: Vec<String>) -> Input {
 }
 
 pub fn twentytwo() -> Result<(), std::io::Error> {
-    let file = File::open("22_input").unwrap();
+    let file = File::open("input/22_input").unwrap();
     let reader = BufReader::new(file);
     let input = parse(reader.lines().map(|t| t.unwrap()).collect());
     println!("Day 22 part 1: {}", one_impl(&input));

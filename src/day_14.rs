@@ -108,7 +108,6 @@ fn two_impl(input: &Input) -> usize {
                 break;
             }
         }
-        //let _ = std::io::stdin().read(&mut [0u8]).unwrap();
     }
 
     units - 1
@@ -129,7 +128,7 @@ fn parse(reader: Vec<String>) -> Input {
 }
 
 pub fn fourteen() -> Result<(), std::io::Error> {
-    let file = File::open("14_input")?;
+    let file = File::open("input/14_input")?;
     let reader = BufReader::new(file);
     let input = parse(reader.lines().map(|t| t.unwrap()).collect());
     println!("Day 14 part 1: {}", one_impl(&input));

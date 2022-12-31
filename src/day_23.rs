@@ -123,9 +123,6 @@ fn one_impl(input: &Input) -> (i32, usize) {
                 maxy = maxy.max(y);
             }
 
-            dbg!(&elves.len());
-            dbg!(minx, maxx, miny, maxy);
-
             score_on_ten = (maxx - minx + 1) * (maxy - miny + 1) - (elves.len() as i32);
         }
     }
@@ -141,7 +138,7 @@ fn parse(reader: Vec<String>) -> Input {
 }
 
 pub fn twentythree() -> Result<(), std::io::Error> {
-    let file = File::open("23_input").unwrap();
+    let file = File::open("input/23_input").unwrap();
     let reader = BufReader::new(file);
     let input = parse(reader.lines().map(|t| t.unwrap()).collect());
     println!("Day 23 part 1&2: {:?}", one_impl(&input));

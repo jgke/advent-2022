@@ -77,7 +77,6 @@ fn one_impl(input: &Input) -> usize {
 
 fn two_impl(input: &Input) -> usize {
     type Unit = (u8, usize);
-    dbg!(&input);
     let routes = &input.1;
     let mut queue: BTreeSet<(usize, usize, Unit, Option<Unit>, usize)> = BTreeSet::new();
 
@@ -299,7 +298,7 @@ fn parse(reader: Vec<String>) -> Input {
 }
 
 pub fn sixteen() -> Result<(), std::io::Error> {
-    let file = File::open("16_input").unwrap();
+    let file = File::open("input/16_input").unwrap();
     let reader = BufReader::new(file);
     let input = parse(reader.lines().map(|t| t.unwrap()).collect());
     println!("Day 16 part 1: {}", one_impl(&input));
